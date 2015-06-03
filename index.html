@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Guessing-Game </title>
+
+		<style type="text/css">
+		body {
+    	background-image: url("http://thegraphicsfairy.com/wp-content/uploads/blogger/-IsaIDChrUfw/TeghgfWKaGI/AAAAAAAAMxE/AxxZFChpsj8/s1600/tree%2Bpine-graphicsfairy008b.jpg");
+    	background-size: 35%;
+     	background-repeat: no-repeat;
+     	background-position: 70% -15%; 
+		}
+		p {
+			font-size: 27px;
+			font-family: "Georgia", serif;
+			color: olive;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<p> How many reams of paper (500 sheets) you can make with a 25 meter tall pine tree? </p>
+		<p> (Guess numbers in increments of 50 reams) </p>
+
+		<form onsubmit='return false'> 
+			<input autofocus id='reams'>
+			<button type='submit' onclick='play()'>Reams</button>
+		</form>
+		<p id='result'></p>
+
+		<script>
+		var playCount = 5;
+		var answer = 250;
+		var reams = document.getElementById( 'reams' );
+		var result = document.getElementById( 'result' );
+		function play () {
+			var value = parseInt( reams.value );
+
+			if ( reams.value == answer ) {
+					result.innerHTML = 'That is right! The answer is 250 reams (rounded up from 238 reams)';
+					playCount = -4;
+			}
+			else if ( reams.value < answer ) {
+					result.innerHTML = 'Too low';
+					playCount--;
+			}
+			else {
+					result.innerHTML = 'Too high';
+					playCount--;
+			}
+
+			if (playCount === 0) {
+					result.innerHTML = 'Game over! The answer is 250 reams (rounded up from 238 reams)';
+			}
+		}
+
+		</script>
+	</body>
+	</head>
+</html>
